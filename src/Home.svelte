@@ -51,10 +51,10 @@
           role="toolbar"
           aria-label="Toolbar with button groups">
           <div class="btn-group" role="group" aria-label="First group">
-            <button type="button" class="btn btn-primary-outline">1</button>
-            <button type="button" class="btn btn-primary-outline">2</button>
-            <button type="button" class="btn btn-primary-outline">3</button>
-            <button type="button" class="btn btn-primary-outline">4</button>
+            <button type="button" class="btn btn-primary-outline">Читај и Пишувај</button>
+            <button type="button" class="btn btn-primary-outline">Граматика и Вокабулар</button>
+            <button type="button" class="btn btn-primary-outline">Акцентирај и Изговарај</button>
+            <!-- <button type="button" class="btn btn-primary-outline">4</button> -->
           </div>
         </div>
       </div>
