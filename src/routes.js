@@ -4,6 +4,7 @@ import ChTxt from "./ChTxt.svelte"
 import PishTxt from "./PishTxt.svelte"
 import GrVok from "./GrVok.svelte"
 import AkIzg from "./AkIzg.svelte"
+import SlikaZbor from "./SlikaZbor.svelte"
 export const routes = {
     // '/': Home,
     // '/ChPish/' : ChPish,
@@ -11,5 +12,6 @@ export const routes = {
     // '/ChPish/PishTxt/' : PishTxt,
     // '/GrVok/' : GrVok,
     // '/AkIzg/' : AkIzg,
-    '/' : AkIzg,
+    // '/GrVok/SlZbor/' : SlikaZbor
+    '/' : SlikaZbor,
 }
