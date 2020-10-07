@@ -5,6 +5,7 @@ import PishTxt from "./PishTxt.svelte"
 import GrVok from "./GrVok.svelte"
 import AkIzg from "./AkIzg.svelte"
 import SlikaZbor from "./SlikaZbor.svelte"
+import SlushajGledaj from "./SlushajGledaj.svelte"
 export const routes = {
     // '/': Home,
     // '/ChPish/' : ChPish,
@@ -13,5 +14,6 @@ export const routes = {
     // '/GrVok/' : GrVok,
     // '/AkIzg/' : AkIzg,
     // '/GrVok/SlZbor/' : SlikaZbor
-    '/' : SlikaZbor,
+    // '/SlushajGledaj/' : SlushajGledaj
+    '/' : SlushajGledaj,
 }

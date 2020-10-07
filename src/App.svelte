@@ -3,7 +3,7 @@ import SimpleRouter from "./SimpleRouter.svelte";
 </script>
 <style>
 	:global(body) {
-	background-color: darkolivegreen !important;
+	background-color: #FFC845!important;
 }
 </style>
 

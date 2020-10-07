@@ -69,6 +69,7 @@
         count++
         if (answers['3']='Куче')
         count++
+        { return count }
     }
 
   </script>
