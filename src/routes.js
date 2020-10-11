@@ -15,5 +15,5 @@ export const routes = {
     // '/AkIzg/' : AkIzg,
     // '/GrVok/SlZbor/' : SlikaZbor
     // '/SlushajGledaj/' : SlushajGledaj
-    '/' : AkIzg,
+    '/' : SlikaZbor,
 }

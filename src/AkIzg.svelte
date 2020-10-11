@@ -1,55 +1,69 @@
 <script>
     import { text } from "svelte/internal";
     import App from "./App.svelte";
-    let count;
+    let count = 0;
+    let picked;
     let answers = {};
+    let last = 0;
     let questions = [{
         title: "Микрофон",
         id: '1',
         options: [{
             title: "кро",
-            value: "кро"
+            value: "кро",
+            true: 0
         }, {
             title: "Ми",
-            value: "Ми"
+            value: "Ми",
+            true: 1
         }, {
             title: "фон",
-            value: "фон"
+            value: "фон",
+            true: 0
         }]
     }, {
         title: "Велосипед",
         id: '2',
         options: [{
             title: "си",
-            value: "си"
+            value: "си",
+            true: 0
         }, {
             title: "ло",
-            value: "ло"
+            value: "ло",
+            true: 1
         }, {
             title: "пед",
-            value: "пед"
+            value: "пед",
+            true: 0
         }, {
             title: "Ве",
-            value: "Ве"
+            value: "Ве",
+            true: 0
         }]
     }, {
         title: "Кондураџија",
         id: '3',
         options: [{
-            title: "Кон",
-            value: "Кон"
-        }, {
             title: "ду",
-            value: "ду"
+            value: "ду",
+            true: 0
+        }, {
+            title: "Кон",
+            value: "Кон",
+            true: 0
         }, {
             title: "ра",
-            value: "ра"
-        }, {
-            title: "џи",
-            value: "џи"
+            value: "ра",
+            true: 1
         }, {
             title: "ја",
-            value: "ја"
+            value: "ја",
+            true: 0
+        }, {
+            title: "џи",
+            value: "џи",
+            true: 0
         }]
     }];
     let activeQuestion = 0;
@@ -57,19 +71,20 @@
     function dec() {
         if (activeQuestion === 0) { return }
         activeQuestion -= 1
+        picked = undefined
     }
     function inc() {
-        if (activeQuestion === (questions.length - 1)) { return }
+        if (activeQuestion === (questions.length - 1)) { last = 1; picked = undefined; correctAnswers(); return }
         activeQuestion += 1
+        picked = undefined
     }
     function correctAnswers() {
-        if (answers['1']='Лав')
-        count++;
-        if (answers['2']='Мачка')
+        for (let i = 0; i < questions.length; i++)
+        if (answers[i] == 1)
         count++
-        if (answers['3']='Куче')
-        count++
-        { return count }
+    }
+    function check(answ) {
+        picked = answ
     }
 
   </script>
@@ -127,6 +142,7 @@
         <p>Помош</p>
       </div>
     </div>
+    {#if !last}
     <div class="row">
         <button type="button" class="btn btn-primary-outline" on:click={dec}>Претходно прашање</button>
         <div class="zbor"><h2>{question.title}</h2></div>
@@ -145,14 +161,24 @@
             <div class="btn-group" role="group" aria-label="First group">
             {#each question.options as option (option.value)}
                 <label on:click>
-                    <input type=radio 
+                    <!--<input type=radio 
                                  name={question.id} 
                                  value={option.value}
                                  on:change={() => answers[question.id] = option.value}
                                  checked={answers[question.id] == option.value}
+                                 on:click={check(option.true)}
+                                 /> -->
+
+                        <input type=radio 
+                                 name={question.id} 
+                                 value={option.value}
+                                 on:change={() => answers[question.id] = option.true}
+                                 checked={answers[question.id] == option.true}
+                                 on:click={check(option.true)}
                                  /> 
                     {option.title}
                 </label>
+                
             {/each}
             </div>
           </div>
@@ -160,5 +186,18 @@
         <div class="col-2" />
       </div>
     </div>
+    {/if}
+    {#if picked}
+        <div class="col"><h2>Точен одговор!</h2></div>
+    {:else if picked == 0}
+        <div class="col"><h2>Погрешен одговор!</h2></div>
+    {/if}
+    {#if last}
+        {#if count}
+            <div class="col"><h2>Браво точно одговори на {count} прашање</h2></div>
+        {:else}
+            <div class="col"><h2>Браво точно одговори на {count} прашања</h2></div>
+        {/if}
+    {/if}
   </div>
   
